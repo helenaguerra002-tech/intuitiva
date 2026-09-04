@@ -67,7 +67,7 @@ function detectWins(){
 
   /* day count */
   const dn = dayNumber(), { total } = ymRange();
-  [7, 30, 60, 100, total].forEach(n => { if (dn >= n) add('day:' + n, start.getTime() + (n-1)*DAY, n === total ? 'You made it to the end' : `Day ${n} of Better`, n === total ? '31 December. Look back at the map.' : `${total - n} to go`, '●'); });
+  [...new Set([7, 30, 60, 100, total])].forEach(n => { if (dn >= n) add('day:' + n, start.getTime() + (n-1)*DAY, n === total ? 'You made it to the end' : `Day ${n} of Better`, n === total ? '31 December. Look back at the map.' : `${total - n} to go`, '●'); });
 
   return W.sort((a, b) => b.ts - a.ts);
 }
